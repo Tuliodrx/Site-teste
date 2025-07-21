@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganhe Pontos Tocando!</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #00b4d8, #90e0ef);
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #003049;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    #pontos {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      padding: 20px 40px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 16px #0001;
+    }
+    #tocarBtn {
+      font-size: 2rem;
+      padding: 25px 60px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      background: #0077b6;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #0002;
+    }
+    #tocarBtn:active {
+      background: #023e8a;
+      transform: scale(0.96);
+    }
+    footer {
+      position: fixed;
+      bottom: 10px;
+      color: #023e8a55;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ganhe Pontos Tocando!</h1>
+  <div id="pontos">0</div>
+  <button id="tocarBtn">Toque aqui!</button>
+
+  <footer>Desenvolvido por Você 💙</footer>
+
+  <script>
+    let pontos = 0;
+    const pontosDiv = document.getElementById('pontos');
+    const botao = document.getElementById('tocarBtn');
+
+    // Toda vez que clicar/toque no botão, soma ponto!
+    botao.addEventListener('click', function() {
+      pontos++;
+      pontosDiv.textContent = pontos;
+    });
+
+    // Suporte a toques diretos na tela (mobile)
+    botao.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      pontos++;
+      pontosDiv.textContent = pontos;
+    });
+  </script>
+
+</body>
+</html>
